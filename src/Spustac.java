@@ -12,10 +12,5 @@ public class Spustac {
         MojaKorytnacka mk = new MojaKorytnacka();
         plocha.add(mk);
         mk.slnko(300);
-        //mk.obdlznik(150);
-        //mk.domcek(150,5);
-//        for (int i= 0; i < 3; i++) {//
-            //mk.domcek(150,5);//
-        //}
     }
 }
