@@ -8,7 +8,7 @@ public class Spustac {
         ObjectInspector oi = new ObjectInspector();
         oi.inspect(plocha);
 
-        //Turtle jozko = new Turtle();plocha.add(jozko);oi.inspect(jozko);//
+
         MojaKorytnacka mk = new MojaKorytnacka();
         plocha.add(mk);
         mk.slnko(300);
