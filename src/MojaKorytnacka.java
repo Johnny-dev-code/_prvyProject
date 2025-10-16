@@ -1,3 +1,4 @@
+import sk.upjs.jpaz2.JPAZUtilities;
 import sk.upjs.jpaz2.Turtle;
 
 import java.awt.*;
@@ -39,35 +40,104 @@ public class MojaKorytnacka extends Turtle {
             this.turn(90);
         }
     }
+
     public void obdlznik(double strana) {
-        for (int i = 0; i <=2; i++) {
+        for (int i = 0; i <= 2; i++) {
             this.step(strana);
             this.turn(90);
-            this.step(strana/2);
+            this.step(strana / 2);
             this.turn(90);
         }
     }
-     public void vlockaN(double luc, double n) {
-         for (int i = 0; i <= n; i++) {
-             this.step(luc/2);
-             for (int j = 0; j < 6; j++) {
-                 this.step(luc/10);
-                 this.step(-luc/10);
-                 this.turn(60);
-             }
-             this.step(-luc/2);
-             this.turn(360/n);
-         }
-     }
-     public void slnko(double polomer) {
+
+    public void vlockaN(double luc, double n) {
+        for (int i = 0; i <= n; i++) {
+            this.step(luc / 2);
+            for (int j = 0; j < 6; j++) {
+                this.step(luc / 10);
+                this.step(-luc / 10);
+                this.turn(60);
+            }
+            this.step(-luc / 2);
+            this.turn(360 / n);
+        }
+    }
+
+    public void slnko(double polomer) {
         this.setFillColor(Color.yellow);
         this.setPenColor(Color.yellow);
         this.dot(polomer);
-         for (int i = 0; i <= 36; i++) {
-             this.step(2*polomer);
-             this.step(-2*polomer);
-             this.turn(10);
-         }
-     }
+        for (int i = 0; i <= 36; i++) {
+            this.step(2 * polomer);
+            this.step(-2 * polomer);
+            this.turn(10);
+        }
+    }
 
+    public void sipka(double n) {
+        this.openPolygon();
+        this.penUp();
+        this.turn(-90);
+        this.step(n / 2);
+        this.turn(120);
+        this.step(n);
+        this.turn(120);
+        this.step(n);
+        this.turn(120);
+        this.step(n / 2);
+        this.turn(90);
+        this.closePolygon();
+        this.penDown();
+    }
+
+    public void navigacnaSipka(double dlzkaStrany) {
+        for (int i = 0; i < 5; i++) {
+            this.sipka(dlzkaStrany);
+            this.penUp();
+            this.step(50);
+            this.penDown();
+        }
+    }
+    public void rovnoramenny(double strana, double uhol)
+    {
+        double startX = this.getX();
+        double stratY = this.getY();
+        double natocenie = this.getDirection();
+        this.turn(-uhol/2);
+        this.step(strana);
+        //JPAZUtilities.delay(500);
+        var surXa = this.getX();
+        var surYa = this.getY();
+        this.step(-strana);
+        //JPAZUtilities.delay(500);
+
+        this.turn(uhol);
+        this.step(strana);
+        //JPAZUtilities.delay(500);
+        this.moveTo(surXa, surYa);
+
+        this.setPosition(startX, stratY);
+        this.setDirection(natocenie);
+    }
+    public void stvorcSpirala(int pocetStran){
+        for (int i = 0; i < pocetStran; i++) {
+            this.step(300-(i*2));
+            this.turn(90);
+        }
+    }
+    public void idk(int n){
+        double strana = n;
+        while (strana>5){
+            this.step(strana);
+            this.turn(90);
+             strana = strana * 0.95;
+            JPAZUtilities.delay(100);
+        }
+    }
+    public void mlyn(int lopatky, double uhol, double strana){
+        for (int i = 0; i < lopatky; i++) {
+            rovnoramenny(strana, uhol);
+            this.turn(360/lopatky);
+        }
+    }
 }
