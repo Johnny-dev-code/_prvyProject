@@ -140,4 +140,66 @@ public class MojaKorytnacka extends Turtle {
             this.turn(360/lopatky);
         }
     }
+
+    public void plny_Diamant (double strana) {
+        //this.openPolygon();
+        //this.setFillColor(Color.green);
+        this.setPenColor(Color.green);
+        this.turn(-23);
+        this.step(strana);
+        this.turn(180-135);
+        this.step(strana);
+
+        this.turn(180-45);
+        this.step(strana);
+        this.turn(80);
+        this.step(strana);
+        //this.closePolygon();
+    }
+    public void plna_hviezdica(double strana) {
+        for (int i = 0; i < 4; i++) {
+            plny_Diamant (strana);
+            this.turn(62);
+        }
+    }
+    public void koralky (int poc, double polomer) {
+        this.turn(90);
+        for (int i = 0; i < poc; i++) {
+            if (i % 3== 0) {
+                this.setFillColor(Color.red);
+            }
+            if (i % 3== 1) {
+                this.setFillColor(Color.green);
+            }
+            if (i % 3== 2) {
+                this.setFillColor(Color.blue);
+            }
+
+            this.penUp();
+            this.dot(polomer);
+            this.step(2*polomer);
+        }
+        this.penDown();
+    }
+    public void alkohol (int n) {
+        double x0 = this.getX();
+        double y0 = this.getY();
+        double natocenie = this.getDirection();
+        for (int i = 0; i < n; i++) {
+            this.setDirection(Math.random()*360);
+            if (this.getX() < x0) {
+                this.setPenColor(Color.green);
+            }
+            else {
+                setPenColor(Color.red);
+            }
+            this.step(99);
+            if (this.distanceTo(x0, y0) > 100) {
+                this.step(-99);
+            }
+            JPAZUtilities.delay(1);
+        }
+        this.setPosition(x0, y0);
+        this.setDirection(natocenie);
+    }
 }

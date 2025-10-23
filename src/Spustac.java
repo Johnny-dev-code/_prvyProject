@@ -12,6 +12,6 @@ public class Spustac {
         MojaKorytnacka mk = new MojaKorytnacka();
         plocha.add(mk);
 
-        mk.mlyn(360, 20, 300);
-        }
+        mk.alkohol(1_000_000);
     }
+}
