@@ -140,4 +140,53 @@ public class MojaKorytnacka extends Turtle {
             this.turn(360/lopatky);
         }
     }
+    public void ostraPochodzka(int p) {
+        double startx = this.getX();
+        double starty = this.getY();
+        double natocenie = this.getDirection();
+        for (int i = 0; i < p; i++) {
+            int uhol=90*(int)(Math.random()*4);
+            this.turn(uhol);
+            if (this.getX() > startx) {
+                this.setPenColor(Color.red);
+            }
+            else {
+                this.setPenColor(Color.green);
+            }
+            this.step(5);
+            if (this.distanceTo(startx, starty) > 500) {
+                this.step(-5);
+            }
+            JPAZUtilities.delay(10);
+        }
+        this.setPosition(startx, starty);
+        this.setDirection(natocenie);
+    }
+    public void pochadzkaTroj(int p, double r) {
+        double startx = this.getX();
+        double starty = this.getY();
+        double natocenie = this.getDirection();
+        for (int i = 0; i < p; i++) {
+            if(this.distanceTo(startx, starty) < r/3) {
+                this.penUp();
+            }
+            else {
+                this.penDown();
+                if (this.distanceTo(startx, starty) < 2*r/3) {
+                    this.setPenColor(Color.red);
+                }
+                else {
+                    setPenColor(Color.black);
+                }
+            }
+            this.turn(Math.random()*360);
+            this.step(5);
+            if (this.distanceTo(startx, starty) > r) {
+                this.step(-5);
+            }
+            JPAZUtilities.delay(2);
+        }
+        this.setPosition(startx, starty);
+        this.setDirection(natocenie);
+    }
 }

@@ -12,6 +12,6 @@ public class Spustac {
         MojaKorytnacka mk = new MojaKorytnacka();
         plocha.add(mk);
 
-        mk.mlyn(360, 20, 300);
+        mk.pochadzkaTroj(5_000_000, 150);
         }
     }
