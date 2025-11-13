@@ -251,4 +251,76 @@ public class MojaKorytnacka extends Turtle {
         this.setPosition(x0, y0);
         this.setDirection(natocenie);
     }
+    public void pochodzka_stvorec(int pocet, double strana) {
+        double x0 = this.getX();
+        double y0 = this.getY();
+        double natocenie = this.getDirection();
+        for (int i = 0; i < pocet; i++) {
+            this.turn(Math.random()*360);
+            this.step(5);
+            //if ((this.getX()) >= x0 + strana/2
+            //    || (this.getY()) >= y0 + strana/2
+            //        || this.getY() <= y0 - strana/2
+              //      || this.getX() <= x0 - strana/2
+
+            //){
+            //    this.step(-5);
+            //}
+            if (Math.abs(this.getX()) > x0 + strana/2
+            || Math.abs(this.getY()) > y0 + strana/2) {
+                this.step(-5);
+            }
+        }
+    }
+    public  void moderneUmenie(int poc, double sirka, double vyska) {
+        double x0 = this.getX();
+        double y0 = this.getY();
+        double natocenie = this.getDirection();
+        this.turn(90);
+        for (int i = 0; i < 2; i++) {
+            this.step(sirka);
+            this.turn(90);
+            this.step(vyska);
+            this.turn(90);
+        }
+        double r = 0;
+        for (int i = 0; i < poc; i++) {
+            r = (Math.random()*5)+2;
+            double xt = (x0+r)+Math.random()*(sirka-2*r);
+            double yt = (y0+r)+Math.random()*(vyska-2*r);
+            if(Math.random()>=0.5) {
+                setFillColor(Color.RED);
+            }
+            else {
+                setFillColor(Color.blue);
+            }
+            this.setPosition(xt, yt);
+            this.dot(r);
+        }
+    }
+    public void Jemen(double poc, double sirka, double vyska) {
+        double x0 = this.getX();
+        double y0 = this.getY();
+        double natocenie = this.getDirection();
+        for (int i = 0; i < poc; i++) {
+            if (this.getY() > y0 - vyska/6
+            || this.getY() < y0 + vyska/6) {
+                this.setPenColor(Color.white);
+            }
+            if (this.getY() > y0 + vyska/6) {
+                this.setPenColor(Color.black);
+            }
+            if (this.getY() < y0 - vyska/6) {
+                this.setPenColor(Color.red);
+            }
+            if (this.getX() > x0 + sirka/2
+            || this.getX() < x0 - sirka/2
+            || this.getY() > y0 + vyska/2
+            || this.getY() < y0 - vyska/2) {
+                this.step(-2);
+            }
+            this.turn(Math.random()*360);
+            this.step(2);
+        }
+    }
 }
