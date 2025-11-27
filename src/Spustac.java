@@ -12,6 +12,6 @@ public class Spustac {
         MojaKorytnacka mk = new MojaKorytnacka();
         plocha.add(mk);
 
-        mk.Jemen(1000000000, 300, 100);
+        mk.anglicko(1_000_000, 300, 500);
         }
     }
