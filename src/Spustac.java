@@ -9,9 +9,8 @@ public class Spustac {
         oi.inspect(plocha);
 
 
-        MojaKorytnacka mk = new MojaKorytnacka();
-        plocha.add(mk);
-
-        mk.anglicko(1_000_000, 300, 500);
-        }
+        Vedec albert = new Vedec();
+        plocha.add(albert);
+        albert.troj(100);
     }
+}
