@@ -11,6 +11,7 @@ public class Spustac {
 
         Vedec albert = new Vedec();
         plocha.add(albert);
-        albert.troj(100);
+        System.out.println(albert.zduplikuj("Petko Ujko"));
     }
+
 }

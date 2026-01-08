@@ -1,6 +1,7 @@
 import sk.upjs.jpaz2.JPAZUtilities;
 import sk.upjs.jpaz2.Turtle;
 
+import javax.print.attribute.standard.MediaSize;
 import java.awt.*;
 
 public class Vedec extends Turtle {
@@ -119,5 +120,63 @@ public class Vedec extends Turtle {
                 (int)(Math.random()*256),
                 (int)(Math.random()*256));
         return farba;
+    }
+    public int pocetA(String slovo) {
+        int  poc = 0;
+        for (int i = 0; i < slovo.length(); i++) {
+            if (slovo.charAt(i) == 'a') {
+                poc ++;
+            }
+        }
+        return poc;
+    };
+    public void testy() {
+        String a = "Ahoj";
+        String b = "cau";
+        System.out.println(a==b);
+        System.out.println(a.equals(b));
+    }
+
+    public String odzadu(String slovo) {
+        if (slovo == null){
+            return null;
+        }
+        String vysledok = "";
+        for (int i = 0; i < slovo.length(); i++) {
+            vysledok = slovo.charAt(i) + vysledok;
+        }
+        return vysledok;
+    }
+    public String odzadu1(String slovo) {
+        if (slovo == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = slovo.length() - 1; i >= 0; i--) {
+            sb.append(slovo.charAt(i));
+        }
+        return sb.toString();
+    }
+    public void vypisPismena(String slovo) {
+        for (int i = 0; i < slovo.length(); i++) {
+            System.out.println(slovo.charAt(i));
+        }
+    }
+    public int pocetSlov(String veta) {
+        int poc = 1;
+        for (int i = 0; i < veta.length(); i++) {
+            if (veta.charAt(i)==' '){
+                poc++;
+            }
+        }
+        return poc;
+    }
+
+    public String zduplikuj(String slovo) {
+        String a = "";
+        for (int i = 0; i < slovo.length(); i++) {
+            a = a + slovo.charAt(i) + slovo.charAt(i);
+        }
+        return a;
     }
 }
