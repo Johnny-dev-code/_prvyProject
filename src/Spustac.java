@@ -11,7 +11,7 @@ public class Spustac {
 
         Vedec albert = new Vedec();
         plocha.add(albert);
-        System.out.println(albert.emailPreTrebisovcanov("Petko psiaKonzerva"));
+        System.out.println(albert.medzislovneSpojky("jaj aha lo", "WWWW"));
     }
 
 }
