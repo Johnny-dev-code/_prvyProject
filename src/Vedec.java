@@ -1,3 +1,4 @@
+import com.sun.source.tree.BreakTree;
 import sk.upjs.jpaz2.JPAZUtilities;
 import sk.upjs.jpaz2.Turtle;
 
@@ -240,4 +241,62 @@ public class Vedec extends Turtle {
         sb.append("@trebisov.sk");
         return sb.toString();
     }
+    public String vystriedajVelkost(String s) {//funguje
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (i % 2 == 0) {
+                sb.append(Character.toUpperCase(s.charAt(i)));
+            }
+            else {
+                sb.append(Character.toLowerCase(s.charAt(i)));
+            }
+        }
+        return sb.toString();
+    }
+    public int pocetSlovSPrvymAposlednym(String veta){
+        int num = 0;
+        String p = "";
+        for (int i = 0; i < veta.length(); i++) {
+            if (veta.charAt(i) != ' ') {
+                p = p + veta.charAt(i);
+            }
+            if (veta.charAt(i) == ' ') {
+                if ( p.charAt(0) == p.charAt(p.length()-1)) {
+                    num++;
+                }
+                p = "";
+            }
+        }
+        return num;
+    }
+    public String medzislovneSpojky(String s1, String s2) {//funguje
+        StringBuilder sb = new StringBuilder();
+        String kratsi = "";
+        if (s1.length()<s2.length()){
+            kratsi = s1;
+        }
+        if (s1.length()>s2.length()){
+            kratsi = s2;
+        }
+        String dlhsi = "";
+        if (s1.length()>s2.length()){
+            dlhsi = s1;
+        }
+        if (s1.length()<s2.length()){
+            dlhsi = s2;
+        }
+        int e = 0;
+        for (int i = 0; i < kratsi.length(); i++) {
+            sb.append(s1.charAt(i));
+            sb.append(s2.charAt(i));
+            e++;
+        }
+        for (int a = 0; a < dlhsi.length(); a++) {
+            if (a>=e){
+                sb.append(dlhsi.charAt(a));
+            }
+        }
+        return sb.toString();
+    }
+
 }
