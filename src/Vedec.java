@@ -179,4 +179,65 @@ public class Vedec extends Turtle {
         }
         return a;
     }
+    public String zdupNepar(String slovo) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < slovo.length(); i++) {
+            if (i % 2 == 0) {
+                sb.append(slovo.charAt(i));
+            }
+            else {
+                sb.append(slovo.charAt(i));
+                sb.append(slovo.charAt(i));
+            }
+        }
+        return  sb.toString();
+    }
+    public String generovanieHesiel (String a, String b, String c, int dlzka) {
+        StringBuilder sb = new StringBuilder(dlzka);
+        for (int i = 0; i < dlzka; i++) {
+            String s;
+            if (i % 3== 0) {
+                s = a;
+            }
+            else if(i%3==1) {
+                s=b;
+            }
+            else {
+                s=c;
+            }
+            sb.append(s.charAt((int)(Math.random()*s.length())));
+        }
+        return sb.toString();
+    }
+    public String email(String meno) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < meno.length(); i++) {
+            if (meno.charAt(i) != ' ') {
+                sb.append(meno.charAt(i));
+            }
+            else {
+                sb.append('.');
+            }
+        }
+        sb.append("@trebisov.sk");
+        return sb.toString();
+    }
+    public String emailPreTrebisovcanov (String meno) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Character.toUpperCase(meno.charAt(0)));
+        for (int i = 1; i < meno.length(); i++) {
+            if(meno.charAt(i) == ' '){
+                sb.append('.');
+                continue;
+            }
+            if(meno.charAt(i-1)==' ') {
+                sb.append(Character.toUpperCase(meno.charAt(i)));
+            }
+            else {
+                sb.append(Character.toLowerCase(meno.charAt(i)));
+            }
+        }
+        sb.append("@trebisov.sk");
+        return sb.toString();
+    }
 }
